@@ -6,6 +6,18 @@ optool is a tool which interfaces with MachO binaries in order to insert/remove 
 ```
 optool v0.1
 
+BUILD:
+  Update the submodule "FSArgumentParser"  (https://github.com/mysteriouspants/ArgumentParser.git)
+    git submodule update --recursive
+  
+  During building, if CoreParse is missing, you should checkout another repository.
+  Switch to FSArgumentParser directory, and clone the repository.
+    cd optool/FSArgumentParser
+    git clone https://github.com/beelsebob/CoreParse.git CoreParser/
+  
+  Open optool project with Xcode, and build, binary "optool" gotten. Move it into /usr/local/bin.
+
+
 USAGE:
   install -c <command> -p <payload> -t <target> [-o=<output>] [-b] [--resign] In
   serts an LC_LOAD command into the target binary which points to the payload. T
